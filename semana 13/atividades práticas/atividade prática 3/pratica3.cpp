@@ -23,17 +23,23 @@ int main() {
 	while (num != -1 and qNum < tamVetor) { //se qNum for igual ao tamVetor, ele já tá preenchido e sai do while pra impressão
 		qNum++;
 
-		//aqui o codigo sla nao ta funcionandoKKKK
-		
-		for (int i = 0; i < qNum; i++) {
-			cout << vetor[i] << " ";
+		int posNum = qNum - 2;
+
+		while (num < vetor[posNum] and posNum >= 0) {
+			vetor[posNum + 1] = vetor[posNum];
+			posNum--;
 		}
-			
-			cout << endl;
-		
+		vetor[posNum + 1] = num;
+	
 		cin >> num;
 	}
 	
+	for (int i = 0; i < qNum; i++) {
+		cout << vetor[i] << " ";
+	}
+	
+	cout << endl;
+
 	delete [] vetor;
 
 	return 0;
